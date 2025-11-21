@@ -21,8 +21,8 @@ st.set_page_config(
 def load_model_objects():
     # Pastikan nama file ini SAMA PERSIS dengan file yang Anda download dari Colab
     try:
-        model_nb = joblib.load("model_sentiment.pkl")
-        vectorizer_tfidf = joblib.load("vectorizer_tfidf.pkl")
+        model_nb = joblib.load("naive_bayes.joblib")
+        vectorizer_tfidf = joblib.load("vectorizer.joblib")
         return model_nb, vectorizer_tfidf
     except FileNotFoundError:
         return None, None
@@ -94,3 +94,4 @@ else:
                 with col2:
                     st.metric("Kemungkinan Positif", f"{prob_pos}%")
                     st.progress(int(prob_pos))
+
